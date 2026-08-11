@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priyanka P | Premium Portfolio</title>
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            border: "hsl(var(--border))",
+            input: "hsl(var(--input))",
+            ring: "hsl(var(--ring))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            primary: {
+              DEFAULT: "hsl(var(--primary))",
+              foreground: "hsl(var(--primary-foreground))",
+            },
+            muted: {
+              DEFAULT: "hsl(var(--muted))",
+              foreground: "hsl(var(--muted-foreground))",
+            },
+            accent: {
+              DEFAULT: "hsl(var(--accent))",
+              foreground: "hsl(var(--accent-foreground))",
+            },
+            card: {
+              DEFAULT: "hsl(var(--card))",
+              foreground: "hsl(var(--foreground))",
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body class="bg-background text-foreground antialiased transition-colors duration-300">
+
+  <!-- Premium Animated Background -->
+  <div class="bg-mesh">
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header id="navbar" class="fixed top-0 w-full z-50 p-4 transition-all duration-300">
+    <div class="mx-auto max-w-5xl glass-nav px-6 py-3 rounded-full flex items-center justify-between">
+      <a href="#" class="font-heading font-bold text-lg tracking-tight text-foreground flex items-center gap-2">
+        <span class="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm shadow-[0_0_15px_hsl(var(--primary-glow))]" id="nav-initial">P</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center space-x-1">
+        <a href="#about" class="px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors">About</a>
+        <a href="#experience" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors" data-tab="tab-experience">Experience</a>
+        <a href="#experience" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors" data-tab="tab-projects">Projects</a>
+        <a href="#contact" class="px-4 py-2 rounded-full text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/10 transition-colors">Contact</a>
+        <div class="flex items-center space-x-2 pl-2 ml-2 border-l border-border">
+          <button id="theme-toggle" class="p-2 rounded-full text-foreground hover:bg-white/10 transition-colors">
+            <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+            <i data-feather="moon" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center space-x-3">
+        <button id="theme-toggle-mobile" class="p-2 rounded-full text-foreground hover:bg-white/10 transition-colors">
+            <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+            <i data-feather="moon" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 rounded-full text-foreground hover:bg-white/10 transition-colors">
+          <i data-feather="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 z-50 glass flex flex-col p-6 hidden">
+    <div class="flex justify-between items-center mb-12">
+      <span class="font-heading font-bold text-xl text-foreground text-gradient" id="mobile-name">Priyanka</span>
+      <button id="close-menu-btn" class="p-2 rounded-full text-foreground hover:bg-white/10">
+        <i data-feather="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+    <ul class="flex flex-col space-y-4">
+      <li><a href="#about" class="mobile-link text-2xl font-heading font-semibold text-muted-foreground hover:text-foreground block py-2">About</a></li>
+      <li><a href="#experience" class="mobile-link nav-link text-2xl font-heading font-semibold text-muted-foreground hover:text-foreground block py-2" data-tab="tab-experience">Experience</a></li>
+      <li><a href="#experience" class="mobile-link nav-link text-2xl font-heading font-semibold text-muted-foreground hover:text-foreground block py-2" data-tab="tab-projects">Projects</a></li>
+      <li><a href="#contact" class="mobile-link text-2xl font-heading font-semibold text-muted-foreground hover:text-foreground block py-2">Contact</a></li>
+    </ul>
+    <div class="mt-auto pb-8 flex justify-center space-x-6" id="mobile-socials"></div>
+  </div>
+
+  <main class="pt-24 md:pt-32 relative z-10">
+    <!-- Hero Section -->
+    <section class="min-h-[75vh] md:min-h-[85vh] py-10 relative flex items-center justify-center overflow-hidden px-4">
+      <div class="max-w-5xl mx-auto w-full relative z-10 grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+        
+        <!-- Left: Content -->
+        <div class="text-left animate-fade-in-left z-20 md:col-span-7">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 mb-6 md:mb-8 shadow-[0_0_20px_hsl(var(--primary-glow))]">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_hsl(var(--primary))]"></span>
+            <span class="text-xs font-mono text-primary uppercase tracking-wider font-semibold">Available for Opportunities</span>
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-[4.5rem] font-heading font-extrabold tracking-tight text-foreground mb-4 md:mb-6 leading-[1.1]" id="hero-name">
+            <!-- Injected -->
+          </h1>
+          
+          <h2 class="text-xl md:text-2xl font-medium text-muted-foreground mb-8 max-w-lg leading-relaxed" id="hero-role">
+            <!-- Injected -->
+          </h2>
+
+          <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-primary text-primary-foreground px-8 py-3.5 rounded-full font-medium hover:opacity-90 shadow-[0_0_20px_hsl(var(--primary-glow))] transition-all hover:scale-105">
+              <span>Contact Me</span>
+              <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#" id="hero-resume" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 glass border-border text-foreground px-8 py-3.5 rounded-full font-medium hover:bg-white/5 transition-all hover:scale-105">
+              <i data-feather="file-text" class="w-4 h-4"></i>
+              <span>Resume</span>
+            </a>
+          </div>
+          
+          <div class="mt-12 flex items-center space-x-6" id="hero-socials"></div>
+        </div>
+
+        <!-- Right: Floating Photo -->
+        <div class="relative animate-fade-in-right hidden md:block md:col-span-5">
+          <div class="relative w-64 h-64 lg:w-[22rem] lg:h-[22rem] mx-auto floating">
+            <!-- Glow background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary to-secondary-glow rounded-full blur-2xl opacity-40"></div>
+            <!-- Glass ring -->
+            <div class="glass-card absolute inset-0 rounded-full overflow-hidden border-4 border-primary/30 shadow-[0_0_30px_hsl(var(--primary-glow))] p-3">
+              <!-- Image Mask -->
+              <div class="w-full h-full rounded-full overflow-hidden bg-muted relative border border-border/50">
+                <img id="hero-image" src="" alt="Profile" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" loading="eager" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-4 py-24 max-w-6xl relative z-20">
+      <div class="mb-16 text-center">
+        <h2 class="text-4xl md:text-5xl font-heading font-extrabold mb-4">About <span class="text-gradient">Me</span></h2>
+        <p class="text-muted-foreground text-lg max-w-2xl mx-auto">Bridging the gap between intelligent algorithms and functional software.</p>
+      </div>
+
+      <!-- Bento Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 auto-rows-min md:auto-rows-[minmax(220px,auto)]">
+        
+        <!-- Bento 1: The Story (Col 1-2, Row 1-2) -->
+        <div class="md:col-span-2 md:row-span-2 bento-card p-8 md:p-10 flex flex-col justify-center relative overflow-hidden group">
+          <div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-[80px] opacity-50 group-hover:opacity-80 transition-opacity duration-700"></div>
+          
+          <h3 class="text-sm font-bold uppercase tracking-widest text-primary mb-4 relative z-10 flex items-center gap-2">
+            <i data-feather="terminal" class="w-4 h-4"></i>
+            Who I Am
+          </h3>
+          
+          <p class="text-2xl md:text-3xl font-heading font-medium leading-snug text-foreground relative z-10 mb-6">
+            An engineering student blending <span class="text-gradient font-extrabold">intelligent algorithms</span> with <span class="text-gradient font-extrabold">modern web architecture</span>.
+          </p>
+          
+          <p class="text-muted-foreground relative z-10 border-l-2 border-primary/50 pl-4" id="about-text">
+            <!-- Injected by script.js -->
+          </p>
+        </div>
+
+        <!-- Bento 2: Machine Learning (Col 3, Row 1) -->
+        <div class="md:col-span-1 md:row-span-1 bento-card p-6 flex flex-col items-start justify-between relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="p-4 rounded-2xl bg-background/50 border border-white/5 backdrop-blur-md shadow-[0_0_20px_hsl(var(--primary-glow))] mb-4 relative z-10 group-hover:scale-110 transition-transform duration-500">
+            <i data-feather="cpu" class="text-primary w-8 h-8"></i>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-bold text-foreground font-heading text-xl mb-1">AI & ML</h3>
+            <p class="text-xs text-muted-foreground">Predictive models & systems</p>
+          </div>
+        </div>
+
+        <!-- Bento 3: Full-Stack (Col 4, Row 1) -->
+        <div class="md:col-span-1 md:row-span-1 bento-card p-6 flex flex-col items-start justify-between relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-bl from-secondary-glow/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="p-4 rounded-2xl bg-background/50 border border-white/5 backdrop-blur-md shadow-[0_0_20px_hsl(var(--secondary-glow))] mb-4 relative z-10 group-hover:scale-110 transition-transform duration-500">
+            <i data-feather="terminal" class="text-[#0ea5e9] w-8 h-8"></i>
+          </div>
+          <div class="relative z-10">
+            <h3 class="font-bold text-foreground font-heading text-xl mb-1">Full-Stack</h3>
+            <p class="text-xs text-muted-foreground">Scalable web applications</p>
+          </div>
+        </div>
+
+        <!-- Bento 4: Graduation (Col 3, Row 2) -->
+        <div class="md:col-span-1 md:row-span-1 bento-card p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10">
+            <p class="text-xs text-muted-foreground uppercase tracking-widest mb-2 font-semibold">Class Of</p>
+            <p class="text-5xl lg:text-6xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-primary/50 drop-shadow-lg">2027</p>
+          </div>
+        </div>
+
+        <!-- Bento 5: Degree (Col 4, Row 2) -->
+        <div class="md:col-span-1 md:row-span-1 bento-card p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group">
+          <div class="absolute inset-0 bg-gradient-to-t from-secondary-glow/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex flex-col items-center">
+            <div class="p-3 rounded-full bg-primary/10 mb-3 border border-primary/20 shadow-[0_0_15px_hsl(var(--primary-glow))]">
+              <i data-feather="book-open" class="text-primary w-6 h-6"></i>
+            </div>
+            <p class="font-bold text-foreground text-sm uppercase tracking-wider">B.Tech</p>
+            <p class="text-xs text-muted-foreground mt-1">AI & Data Science</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Journey / Feature Tabs -->
+    <section id="experience" class="container mx-auto px-4 py-20 max-w-5xl scroll-mt-24">
+      <div class="flex flex-col items-center mb-16">
+        <h2 class="text-4xl font-heading font-bold text-center mb-4">My <span class="text-gradient">Journey</span></h2>
+        <p class="text-center text-muted-foreground max-w-2xl mx-auto mb-10">A timeline of my professional growth, technical expertise, and featured work.</p>
+        
+        <!-- Modern Tabs -->
+      <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-20 border-b border-white/5 pb-2">
+        <button class="tab-btn modern-tab active relative px-2 py-2 text-sm font-heading font-bold uppercase tracking-wider text-primary transition-all" data-tab="tab-experience">Experience</button>
+        <button class="tab-btn modern-tab relative px-2 py-2 text-sm font-heading font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-all" data-tab="tab-projects">Projects</button>
+        <button class="tab-btn modern-tab relative px-2 py-2 text-sm font-heading font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-all" data-tab="tab-skills">Skills</button>
+        <button class="tab-btn modern-tab relative px-2 py-2 text-sm font-heading font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-all" data-tab="tab-certifications">Certifications</button>
+        <button class="tab-btn modern-tab relative px-2 py-2 text-sm font-heading font-bold uppercase tracking-wider text-muted-foreground hover:text-primary transition-all" data-tab="tab-additional">More Info</button>
+      </div>
+      </div>
+
+      <div class="relative min-h-[500px]">
+        <!-- Experience Tab -->
+        <div id="tab-experience" class="tab-content active max-w-4xl mx-auto relative">
+          <div class="timeline-line"></div>
+          <div class="space-y-12" id="experience-container">
+            <!-- Injected -->
+          </div>
+        </div>
+
+        <!-- Projects Tab -->
+        <div id="tab-projects" class="tab-content">
+          <div class="grid md:grid-cols-2 gap-8" id="projects-container">
+            <!-- Injected -->
+          </div>
+        </div>
+
+        <!-- Skills Tab -->
+        <div id="tab-skills" class="tab-content">
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-container">
+            <!-- Injected -->
+          </div>
+        </div>
+
+        <!-- Certifications Tab -->
+        <div id="tab-certifications" class="tab-content">
+          <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto" id="certifications-container">
+            <!-- Injected -->
+          </div>
+        </div>
+
+        <!-- Additional Info Tab -->
+        <div id="tab-additional" class="tab-content">
+          <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" id="additional-container">
+            <!-- Injected -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto px-4 py-24 max-w-4xl text-center">
+      <div class="mb-12">
+        <h2 class="text-5xl font-heading font-bold mb-6">Let's <span class="text-gradient">Connect</span></h2>
+        <p class="text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">I'm currently exploring new opportunities. Whether you have a question, a project idea, or just want to say hi, my inbox is always open!</p>
+      </div>
+
+      <div class="bento-card rounded-3xl p-12 md:p-16 relative overflow-hidden group max-w-3xl mx-auto border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        
+        <!-- Subtle background glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none group-hover:bg-primary/20 transition-all duration-700"></div>
+
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary flex items-center justify-center mb-8 border border-primary/30 shadow-[0_0_20px_hsl(var(--primary-glow))] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500">
+            <i data-feather="mail" class="w-10 h-10 group-hover:animate-pulse"></i>
+          </div>
+          
+          <a href="#" id="contact-email-link" class="text-lg md:text-2xl lg:text-3xl font-heading font-bold text-foreground hover:text-primary transition-colors mb-12 block break-all">
+            <span id="contact-email"></span>
+          </a>
+          
+          <div class="w-32 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent mb-12"></div>
+          
+          <p class="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-8">Also available on</p>
+          <div class="flex space-x-6 justify-center scale-110" id="contact-socials"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-border/20 glass py-8 relative z-10">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-muted-foreground font-medium text-sm">
+        &copy; <span id="current-year"></span> <span id="footer-name"></span>. Built with premium code.
+      </p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

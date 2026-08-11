@@ -1,0 +1,313 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Feather Icons
+  feather.replace();
+
+  // Load Data
+  document.getElementById('nav-initial').textContent = portfolioData.name.charAt(0);
+  document.getElementById('hero-name').innerHTML = `<span class="block">${portfolioData.name.split(' ')[0]}</span> <span class="text-gradient block mt-2">${portfolioData.name.split(' ').slice(1).join(' ')}</span>`;
+  document.getElementById('hero-role').textContent = portfolioData.shortRole;
+  document.getElementById('hero-resume').href = portfolioData.resumeUrl;
+  
+  document.getElementById('about-text').textContent = portfolioData.aboutText;
+  
+  document.getElementById('contact-email-link').href = `mailto:${portfolioData.email}`;
+  document.getElementById('contact-email').textContent = portfolioData.email;
+  
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+  document.getElementById('footer-name').textContent = portfolioData.name;
+  document.getElementById('mobile-name').textContent = portfolioData.name.split(' ')[0];
+  
+  const heroImage = document.getElementById('hero-image');
+  if (heroImage && portfolioData.profileImage) {
+    heroImage.src = portfolioData.profileImage;
+  }
+
+  // Socials
+  const createSocialLink = (url, icon) => {
+    return `<a href="${url}" target="_blank" rel="noreferrer" class="p-3 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all border border-border/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))]"><i data-feather="${icon}" class="w-5 h-5"></i></a>`;
+  };
+  
+  const socialsHtml = `
+    ${createSocialLink(portfolioData.socials.github, 'github')}
+    ${createSocialLink(portfolioData.socials.linkedin, 'linkedin')}
+    <a href="mailto:${portfolioData.email}" class="p-3 rounded-full bg-primary/10 text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-all border border-border/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))]"><i data-feather="mail" class="w-5 h-5"></i></a>
+  `;
+  document.getElementById('hero-socials').innerHTML = socialsHtml;
+  document.getElementById('contact-socials').innerHTML = socialsHtml;
+  document.getElementById('mobile-socials').innerHTML = socialsHtml;
+
+  // Experience (Split-Layout Timeline)
+  const expHtml = portfolioData.experience.map((exp, index) => {
+    const isEven = index % 2 !== 0; // 0 is first item (odd visually)
+    return `
+    <div class="relative flex flex-col md:flex-row justify-between items-center group mb-24 last:mb-0 ${isEven ? 'md:flex-row-reverse' : ''}">
+      
+      <!-- Date side -->
+      <div class="hidden md:flex w-[45%] ${isEven ? 'justify-start pl-12' : 'justify-end pr-12'}">
+        <span class="text-3xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-foreground to-primary/40 drop-shadow-2xl opacity-50 group-hover:opacity-100 transition-opacity duration-500">
+          ${exp.duration}
+        </span>
+      </div>
+
+      <!-- Timeline Dot -->
+      <div class="absolute left-0 md:left-1/2 ml-0 md:-ml-[24px] w-12 h-12 rounded-full border-4 border-background bg-primary/10 text-primary flex items-center justify-center shadow-[0_0_20px_hsl(var(--primary-glow))] z-10 transition-transform group-hover:scale-125 duration-500 backdrop-blur-md">
+        <div class="w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_hsl(var(--primary))] group-hover:animate-ping"></div>
+      </div>
+      
+      <!-- Content Card side -->
+      <div class="w-full md:w-[45%] pl-16 md:pl-0">
+        <div class="hologram-card p-8 rounded-3xl relative overflow-hidden transition-all duration-500 text-left ${isEven ? 'md:text-right' : ''}">
+          <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <h3 class="font-heading font-bold text-2xl text-foreground mb-1 group-hover:text-primary transition-colors">${exp.title}</h3>
+            <div class="text-muted-foreground font-bold text-sm tracking-widest uppercase mb-4">${exp.company}</div>
+            <p class="text-base text-muted-foreground mb-6 leading-relaxed">${exp.description}</p>
+            <div class="flex flex-wrap gap-2 ${isEven ? 'md:justify-end' : ''}">
+              ${exp.technologies.map(tech => `<span class="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-foreground/5 backdrop-blur-sm text-foreground rounded border border-foreground/10 group-hover:border-primary/50 transition-colors">${tech}</span>`).join('')}
+            </div>
+            <!-- Mobile Date -->
+            <div class="mt-6 md:hidden text-primary font-bold opacity-70">${exp.duration}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `}).join('');
+  document.getElementById('experience-container').innerHTML = expHtml;
+
+  // Projects
+  const projHtml = portfolioData.projects.map(proj => `
+    <div class="glass-card rounded-3xl overflow-hidden group flex flex-col h-full border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
+      
+      <!-- Image Container -->
+      <div class="relative h-60 w-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary-glow/20">
+        <div class="absolute inset-0 bg-background/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+        <img src="${proj.image}" alt="${proj.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+        
+        <!-- Floating Tech Badges -->
+        <div class="absolute top-4 left-4 z-20 flex flex-wrap gap-2 max-w-[80%]">
+           ${proj.technologies.slice(0,3).map(tech => `<span class="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-foreground/10 backdrop-blur-md text-foreground rounded-full border border-foreground/10">${tech}</span>`).join('')}
+        </div>
+      </div>
+      
+      <!-- Content Container -->
+      <div class="p-8 flex flex-col flex-grow relative z-20 bg-background/40">
+        <h3 class="font-heading font-bold text-2xl mb-3 text-foreground group-hover:text-primary transition-colors">${proj.title}</h3>
+        <p class="text-muted-foreground text-sm mb-8 flex-grow leading-relaxed">${proj.description}</p>
+        
+        <!-- Action Links -->
+        <div class="flex items-center pt-6 border-t border-border mt-auto">
+          <a href="${proj.githubUrl}" target="_blank" class="w-full flex items-center justify-center space-x-2 text-sm font-bold uppercase tracking-wider bg-foreground/5 hover:bg-primary/20 text-foreground hover:text-primary py-3 rounded-xl transition-all border border-foreground/10 hover:border-primary/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))]">
+            <i data-feather="github" class="w-5 h-5"></i>
+            <span>View Source Code</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('projects-container').innerHTML = projHtml;
+
+  // Skills
+  const createSkillCard = (title, icon, skills) => `
+    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group hover:border-primary/30 transition-all duration-500">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      
+      <div class="flex items-center space-x-3 mb-6 relative z-10">
+        <div class="p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20 shadow-[0_0_15px_hsl(var(--primary-glow))]">
+          <i data-feather="${icon}" class="w-5 h-5"></i>
+        </div>
+        <h3 class="font-heading font-bold text-xl text-foreground">${title}</h3>
+      </div>
+      
+      <div class="flex flex-col gap-4 relative z-10">
+        ${skills.map(s => `
+          <div class="skill-item">
+            <div class="flex justify-between items-end mb-1.5">
+              <span class="text-xs font-bold text-muted-foreground uppercase tracking-widest">${s.name}</span>
+              <span class="text-[10px] font-mono font-bold text-primary">${s.level}%</span>
+            </div>
+            <div class="h-1.5 w-full bg-foreground/10 rounded-full overflow-hidden border border-foreground/5 relative">
+              <div class="skill-progress h-full bg-gradient-to-r from-primary to-secondary-glow rounded-full shadow-[0_0_15px_hsl(var(--primary-glow))] w-0 transition-all duration-[1500ms] ease-out absolute left-0 top-0" data-level="${s.level}"></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  document.getElementById('skills-container').innerHTML = `
+    ${createSkillCard('Languages', 'code', portfolioData.skills.languages)}
+    ${createSkillCard('Frontend', 'layout', portfolioData.skills.frontend)}
+    ${createSkillCard('Backend', 'server', portfolioData.skills.backend)}
+    ${createSkillCard('AI & Data Science', 'cpu', portfolioData.skills.ai_ml)}
+    ${createSkillCard('Tools & DBs', 'tool', portfolioData.skills.tools)}
+  `;
+
+  // Certifications
+  if (portfolioData.certifications && portfolioData.certifications.length > 0) {
+    const certHtml = portfolioData.certifications.map(cert => `
+      <div class="hologram-card p-8 rounded-3xl relative overflow-hidden group border border-white/5 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
+        
+        <!-- Glowing Orb Background -->
+        <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/30 group-hover:scale-150 transition-all duration-700"></div>
+
+        <div class="relative z-10 flex flex-col h-full">
+          <div class="flex items-start justify-between mb-8">
+            <!-- Icon -->
+            <div class="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary border border-primary/20 shadow-[0_0_20px_hsl(var(--primary-glow))] group-hover:scale-110 transition-transform duration-500">
+              <i data-feather="award" class="w-6 h-6 group-hover:animate-pulse"></i>
+            </div>
+            <!-- Date Badge -->
+            <span class="text-xs font-bold px-4 py-1.5 bg-foreground/5 backdrop-blur-md text-foreground rounded-full border border-foreground/10 uppercase tracking-widest shadow-inner">${cert.date}</span>
+          </div>
+          
+          <h3 class="font-heading font-bold text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">${cert.title}</h3>
+          <p class="text-muted-foreground font-bold text-sm tracking-wider uppercase mb-8 flex-grow opacity-70">${cert.issuer}</p>
+          
+          <!-- Modern Button -->
+          <a href="${cert.link}" target="_blank" class="w-full flex items-center justify-center space-x-2 text-sm font-bold uppercase tracking-wider bg-foreground/5 hover:bg-primary/20 text-foreground hover:text-primary py-3.5 rounded-xl transition-all border border-foreground/10 hover:border-primary/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))] mt-auto">
+            <span>Verify Credential</span>
+            <i data-feather="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('certifications-container').innerHTML = certHtml;
+  }
+
+  // Additional Info
+  if (portfolioData.additionalInfo && portfolioData.additionalInfo.length > 0) {
+    const addInfoHtml = portfolioData.additionalInfo.map((info) => `
+      <div class="hologram-card p-8 rounded-3xl relative overflow-hidden group border border-white/5 hover:border-primary/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)] flex flex-col items-center text-center h-full">
+        <!-- Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="relative z-10 flex flex-col h-full w-full">
+          <!-- Icon -->
+          <div class="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary border border-primary/30 shadow-[0_0_20px_hsl(var(--primary-glow))] flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500">
+            <i data-feather="${info.icon || 'star'}" class="w-8 h-8 group-hover:animate-pulse"></i>
+          </div>
+          <!-- Title -->
+          <h3 class="font-heading font-bold text-2xl text-foreground mb-4 group-hover:text-primary transition-colors">${info.title}</h3>
+          <!-- Description -->
+          <p class="text-muted-foreground leading-relaxed text-sm mb-6 flex-grow">${info.description}</p>
+          
+          ${info.link ? `
+          <!-- Link -->
+          <a href="${info.link}" target="_blank" class="inline-flex items-center space-x-2 text-sm font-bold text-primary hover:text-primary-foreground hover:bg-primary px-6 py-2.5 rounded-full border border-primary/20 transition-all hover:shadow-[0_0_15px_hsl(var(--primary-glow))] mt-auto mx-auto w-max bg-foreground/5">
+            <span>${info.linkText || 'Learn More'}</span>
+            <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          ` : ''}
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('additional-container').innerHTML = addInfoHtml;
+  }
+
+  feather.replace();
+
+  // Tabs Logic
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  const activateTab = (targetId) => {
+    tabBtns.forEach(b => {
+      b.classList.remove('active', 'text-primary');
+      b.classList.add('text-muted-foreground');
+    });
+    tabContents.forEach(c => c.classList.remove('active'));
+    
+    const activeBtn = Array.from(tabBtns).find(b => b.dataset.tab === targetId || b.dataset.target === targetId);
+    if(activeBtn) {
+      activeBtn.classList.remove('text-muted-foreground');
+      activeBtn.classList.add('active', 'text-primary');
+    }
+    document.getElementById(targetId).classList.add('active');
+    
+    // Trigger Skill Animations
+    if(targetId === 'tab-skills') {
+      setTimeout(() => {
+        document.querySelectorAll('.skill-progress').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-level') + '%';
+        });
+      }, 100);
+    } else {
+      // Reset so they animate again next time
+      document.querySelectorAll('.skill-progress').forEach(bar => {
+        bar.style.width = '0%';
+      });
+    }
+  };
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab || btn.dataset.target;
+      activateTab(target);
+    });
+  });
+
+  // Navigation Logic (Fixing the bug)
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetTab = link.dataset.tab;
+      
+      // Close mobile menu if open
+      document.getElementById('mobile-menu').classList.add('hidden');
+      
+      // Scroll to journey section
+      document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
+      
+      // Activate the specific tab
+      activateTab(targetTab);
+    });
+  });
+
+  // Mobile Menu Logic
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const closeMenuBtn = document.getElementById('close-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinksNormal = document.querySelectorAll('.mobile-link:not(.nav-link)');
+
+  mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('hidden'));
+  closeMenuBtn.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  mobileLinksNormal.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // Navbar Scroll
+  const navbar = document.getElementById('navbar').firstElementChild;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('glass-nav');
+      navbar.classList.remove('bg-transparent', 'border-transparent', 'shadow-none');
+    } else {
+      navbar.classList.remove('glass-nav');
+      navbar.classList.add('bg-transparent', 'border-transparent', 'shadow-none');
+    }
+  });
+
+  // Theme Toggles
+  const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+  
+  // Set default theme to dark if not set, or read from local storage
+  if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add('dark');
+  } else if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+  } else {
+      document.documentElement.classList.remove('dark');
+  }
+
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    const isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  };
+
+  themeToggles.forEach(toggle => {
+    if (toggle) toggle.addEventListener('click', toggleTheme);
+  });
+
+
+});
