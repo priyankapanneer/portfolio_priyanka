@@ -1,62 +1,61 @@
-# Priyanka P. - Developer Portfolio
+# Premium Developer Portfolio
 
-A complete, modern, premium personal portfolio website for Priyanka P., tailored for her profile as an AI & Data Science student specializing in Machine Learning and Full-Stack Development.
+A sleek, modern, and data-driven personal portfolio designed with a cyberpunk/glassmorphism aesthetic. This portfolio is built with pure Vanilla HTML, CSS, and Javascript. It relies on a centralized data object (`data.js`) to dynamically render the entire UI, making it incredibly easy to update without touching any HTML markup.
 
-## Tech Stack
-- React.js
-- Vite
-- Tailwind CSS
-- Framer Motion
-- Lucide React
+## ✨ Features
 
-## Features
-- **Premium Design:** Modern editorial aesthetic with a custom color scheme.
-- **Dynamic Content:** Fully driven by localized data files for easy management.
-- **Interactive UI:** Framer motion-powered smooth scroll reveals, filtering, and modal popups.
-- **Responsive:** Fluid and optimized for all devices.
-- **Dark Mode:** Clean dark interface to match developer aesthetics.
+- **100% Data-Driven:** Add projects, skills, certifications, and experience simply by updating arrays in `data.js`.
+- **Premium Glassmorphism UI:** Custom CSS classes (`.bento-card`, `.hologram-card`) combined with Tailwind utilities for a stunning visual experience.
+- **Fail-Safe Assets:** Built-in Unsplash fallbacks for missing images ensure the layout never breaks.
+- **Zero Dependencies:** No React, No Vue, No `npm install`, and no build steps. 
+- **Light/Dark Mode:** Full support for both themes with modern tokenized CSS variables.
+- **Fully Responsive:** Custom grid systems that adapt perfectly from mobile screens to ultrawide monitors.
 
-## Folder Structure
-- `public/`: Static assets like favicon and `resume.pdf`.
-- `src/assets/`: Place your project and certificate images here.
-- `src/components/`: Reusable React components.
-- `src/data/`: Content files for easy editing.
-- `src/index.css`: Global styles and Tailwind configuration.
+## 🛠️ Tech Stack
 
-## Installation & Development
+- **Structure:** HTML5
+- **Styling:** TailwindCSS (via CDN) & Custom CSS Variables (`styles.css`)
+- **Logic:** Vanilla JavaScript (`script.js`)
+- **Icons:** Feather Icons (Client-side rendering)
+- **Data Source:** `data.js`
 
-To get started locally:
+## 🚀 Getting Started
 
-1. **Install dependencies:**
+Since this project has **no build step**, getting it running locally is instantaneous:
+
+1. Clone the repository:
    ```bash
-   npm install
+   git clone https://github.com/priyankapanneer/portfolio_priyanka.git
    ```
+2. Open the folder and double-click `index.html` to open it in your browser. 
+3. (Optional) Run a live server using VS Code's **Live Server** extension for hot-reloading.
 
-2. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+## 📝 How to Update Your Content
 
-3. **Create a production build:**
-   ```bash
-   npm run build
-   ```
+You never need to edit `index.html` or `script.js` to update your portfolio. Everything is controlled via `data.js`.
 
-## Vercel Deployment
-This project is Vite & React based and is ready for 1-click Vercel deployment:
-1. Push the code to a GitHub repository.
-2. Import the repository into Vercel.
-3. Vercel will automatically detect Vite and run `npm run build`.
+### To Add a New Project:
+Open `data.js` and add an object to the `projects` array:
+```javascript
+{
+  id: 3,
+  title: "My Awesome App",
+  description: "A description of the app.",
+  image: "link-to-image.jpg",
+  technologies: ["React", "Firebase"],
+  githubUrl: "https://github.com/..."
+}
+```
 
-## Customization Guide
+### To Update Your Profile Photo:
+Replace `profile.png` in the root folder with your new photo, or update the `profileImage` URL in `data.js`.
 
-All portfolio content is isolated in `src/data/` for easy updates.
+### To Update Your Resume:
+Replace `Priyanka_Resume.pdf` in the root folder with your latest resume PDF, and ensure `resumeUrl` in `data.js` points to it.
 
-- **Personal Information:** Edit `src/data/portfolioData.js` to change your name, role, bio, social links, email, and languages.
-- **Projects:** Add or edit projects in `src/data/projects.js`. Ensure you include GitHub and Live URLs if they exist.
-- **Skills:** Categorize and list your skills in `src/data/skills.js`.
-- **Education:** Update your academic history in `src/data/education.js`.
-- **Experience:** Add work experience, roles, and impact metrics in `src/data/experience.js`.
-- **Certifications:** Add certificates in `src/data/certifications.js` and place images in `public/` or `src/assets/`.
-- **Achievements:** List achievements and awards in `src/data/achievements.js`.
-- **Resume:** Place your resume PDF in `public/resume.pdf`.
+## 🌐 Deployment
+
+This project is perfectly suited for free static hosting platforms:
+
+- **GitHub Pages:** Just go to repository Settings > Pages > Deploy from branch (`main`).
+- **Vercel / Netlify:** Drag and drop the folder, or link the GitHub repository. It will deploy instantly.
