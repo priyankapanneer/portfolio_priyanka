@@ -7,8 +7,8 @@ const portfolioData = {
   profileImage: "./profile.png",
   aboutText: "Final-year AI & Data Science undergraduate at MKCE. Passionate about architecting scalable systems and applying first-principles problem-solving to drive digital transformation.",
   socials: {
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/"
+    github: "https://github.com/priyankapanneer",
+    linkedin: "https://www.linkedin.com/in/priyanka-panneerselvam/"
   },
   experience: [
     {
@@ -16,8 +16,8 @@ const portfolioData = {
       title: "Full-Stack Developer",
       company: "Technology Innovation Hub",
       duration: "2025 – 2026",
-      description: "Architected a 0-to-1 ERP system for college administration, leading a team of 11 developers to deliver high-availability modules currently impacting 4,300+ stakeholders. Optimized data integrity by designing a normalized MySQL schema from scratch, reducing query latency. Engineered a granular 8-tier Role-Based Access Control (RBAC) system.",
-      technologies: ["System Design", "MySQL", "RBAC", "Full-Stack"]
+      description: "Led an 11-developer team to architect a 0-to-1 high-availability college ERP serving 4,300+ stakeholders.Optimized database latency with a normalized MySQL schema and secured administrative modules using a custom 8-tier RBAC system.",
+      technologies: ["0-to-1 Product Architecture , Technical Team Leadership (11 Devs) , Database Optimization & Scalability ,Role-Based Access Control (RBAC), High-Availability System Design"]
     }
   ],
   projects: [
@@ -40,30 +40,35 @@ const portfolioData = {
   ],
   skills: {
     languages: [
-      { name: "Python", level: 90 },
-      { name: "Java", level: 85 },
-      { name: "JavaScript", level: 85 },
-      { name: "PHP", level: 80 },
-      { name: "C / SQL", level: 80 }
-    ],
-    frontend: [
-      { name: "HTML/CSS", level: 90 },
-      { name: "Bootstrap", level: 85 }
-    ],
-    backend: [
-      { name: "DBMS / MySQL", level: 90 },
-      { name: "Laravel", level: 80 },
-      { name: "REST APIs", level: 85 }
+      { name: "Python", level: 80 },
+      { name: "SQL", level: 70 },
+      { name: "Java", level: 65 },
+      { name: "JavaScript", level: 60 }
     ],
     ai_ml: [
-      { name: "Pandas/NumPy", level: 85 },
-      { name: "Scikit-learn", level: 80 },
-      { name: "IBM SPSS", level: 75 }
+      { name: "Pandas", level: 80 },
+      { name: "Machine Learning", level: 75 },
+      { name: "NumPy", level: 75 },
+      { name: "Scikit-learn", level: 75 },
+      { name: "Data Analysis", level: 75 },
+      { name: "Generative AI", level: 65 }
+    ],
+    web_dev: [
+      { name: "HTML/CSS", level: 85 },
+      { name: "Bootstrap", level: 75 },
+      { name: "Flask", level: 65 },
+      { name: "PHP", level: 65 },
+      { name: "React.js", level: 55 }
+    ],
+    databases: [
+      { name: "MySQL", level: 75 },
+      { name: "SQLite", level: 70 },
+      { name: "PySpark", level: 55 },
+      { name: "Apache Spark", level: 55 }
     ],
     tools: [
-      { name: "Git & GitHub", level: 90 },
-      { name: "System Design", level: 85 },
-      { name: "Cybersecurity", level: 80 }
+      { name: "Jupyter", level: 80 },
+      { name: "Git/GitHub", level: 60 }
     ]
   },
   certifications: [

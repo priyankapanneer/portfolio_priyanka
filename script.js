@@ -136,10 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.getElementById('skills-container').innerHTML = `
     ${createSkillCard('Languages', 'code', portfolioData.skills.languages)}
-    ${createSkillCard('Frontend', 'layout', portfolioData.skills.frontend)}
-    ${createSkillCard('Backend', 'server', portfolioData.skills.backend)}
     ${createSkillCard('AI & Data Science', 'cpu', portfolioData.skills.ai_ml)}
-    ${createSkillCard('Tools & DBs', 'tool', portfolioData.skills.tools)}
+    ${createSkillCard('Web Development', 'layout', portfolioData.skills.web_dev)}
+    ${createSkillCard('Databases', 'database', portfolioData.skills.databases)}
+    ${createSkillCard('Tools', 'tool', portfolioData.skills.tools)}
   `;
 
   // Certifications
