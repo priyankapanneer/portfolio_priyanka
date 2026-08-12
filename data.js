@@ -77,28 +77,28 @@ const portfolioData = {
       title: "Fortinet NSE 4 Certified in FortiOS",
       issuer: "Fortinet",
       date: "Aug 2026",
-      link: "https://training.fortinet.com/admin/tool/certificate/index.php"
+      link: "./public/certificates/fortinet.pdf"
     },
     {
       id: 2,
       title: "Cloud Computing (Elite Topper 2%)",
       issuer: "NPTEL | IIT Kharagpur",
       date: "Apr 2026",
-      link: "#"
+      link: "./public/certificates/nptel_cloud.pdf"
     },
     {
       id: 3,
       title: "Social Networks (Elite)",
       issuer: "NPTEL | IIT Madras",
       date: "Apr 2026",
-      link: "#"
+      link: "./public/certificates/nptel_social.pdf"
     },
     {
       id: 4,
       title: "Zertifikat Deutsch (CEF A1.1)",
       issuer: "inlingua Chennai",
       date: "Aug 2024",
-      link: "#"
+      link: "./public/certificates/inlingua.jpg"
     },
     {
       id: 5,
