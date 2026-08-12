@@ -36,6 +36,38 @@ const portfolioData = {
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
       technologies: ["PHP", "MySQL", "Bootstrap", "JavaScript"],
       githubUrl: "https://github.com/priyankapanneer/Discipline-Management-System"
+    },
+    {
+      id: 3,
+      title: "RESILIO: Tactical Traffic Command",
+      description: "An enterprise-tier municipal traffic command dashboard featuring real-time telemetry, LightGBM Time-to-Clear predictions, SHAP explainability charts, and Llama 3 tactical SOP checklists.",
+      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Python", "Node.js", "LightGBM", "Llama 3"],
+      githubUrl: "https://github.com/priyankapanneer/gridlock"
+    },
+    {
+      id: 4,
+      title: "Language Detection App",
+      description: "A full-stack language detection web application featuring a fast API backend and a responsive, animated React frontend with Tailwind CSS and Framer Motion.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
+      technologies: ["FastAPI", "React", "Tailwind CSS", "Python"],
+      githubUrl: "https://github.com/priyankapanneer/language_detection"
+    },
+    {
+      id: 5,
+      title: "TrustAI: Ethical AI Governance",
+      description: "An innovative platform focused on bringing transparency, fairness, and explainability to banking AI systems to meet regulatory requirements and ensure unbiased decisions.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Python", "Flask", "Bootstrap", "SQLite"],
+      githubUrl: "https://github.com/priyankapanneer/GHCIHACKATHON"
+    },
+    {
+      id: 6,
+      title: "Pandemic Pulse",
+      description: "A data-driven tracking and analytics tool designed to monitor and visualize pandemic-related metrics and health trends through dynamic data analysis.",
+      image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Python", "Pandas", "Data Visualization", "Data Science"],
+      githubUrl: "https://github.com/priyankapanneer/Pandemicpulse"
     }
   ],
   skills: {
