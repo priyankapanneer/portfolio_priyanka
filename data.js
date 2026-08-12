@@ -10,14 +10,41 @@ const portfolioData = {
     github: "https://github.com/priyankapanneer",
     linkedin: "https://www.linkedin.com/in/priyanka-panneerselvam/"
   },
+  education: [
+    {
+      id: 1,
+      institution: "M. Kumarasamy College of Engineering",
+      degree: "B.Tech Artificial Intelligence & Data Science",
+      duration: "2023 – 2027",
+      score: "8.43 CGPA (Till 5th Semester)",
+      icon: "book-open"
+    },
+    {
+      id: 2,
+      institution: "Green Park Matric Higher Secondary School",
+      degree: "HSC (12th) - Bio-Maths",
+      duration: "2021 – 2022",
+      score: "85.83%",
+      icon: "book"
+    },
+    {
+      id: 3,
+      institution: "R. N. Oxford Matriculation School",
+      degree: "SSLC (10th)",
+      duration: "2019 – 2020",
+      score: "99.98%",
+      icon: "award"
+    }
+  ],
   experience: [
     {
       id: 1,
       title: "Full-Stack Developer",
       company: "Technology Innovation Hub",
       duration: "2025 – 2026",
-      description: "Led an 11-developer team to architect a 0-to-1 high-availability college ERP serving 4,300+ stakeholders.Optimized database latency with a normalized MySQL schema and secured administrative modules using a custom 8-tier RBAC system.",
-      technologies: ["0-to-1 Product Architecture , Technical Team Leadership (11 Devs) , Database Optimization & Scalability ,Role-Based Access Control (RBAC), High-Availability System Design"]
+      description: "Led an 11-developer team to build a high-availability college ERP for 4,300+ users. Optimized database schema and implemented a custom 8-tier RBAC security system.",
+      technologies: ["Architecture", "Team Leadership", "Optimization", "RBAC", "System Design"],
+      link: "https://drive.google.com/file/d/1jklr4cxqLx_qPEV03ZAk4PVhJOe0jqK8/view?usp=sharing"
     }
   ],
   projects: [
@@ -179,6 +206,167 @@ const portfolioData = {
       issuer: "inlingua Chennai",
       date: "Aug 2024",
       link: "./public/certificates/inlingua.jpg"
+    },
+    {
+      id: 5,
+      title: "Pragati: Path to Future - Cohort 4",
+      issuer: "Infosys",
+      date: "Feb 2025 - Jun 2025",
+      link: "https://drive.google.com/file/d/1I0hPGkmBGdQ8qtxGjpOVO3ph80DOseLu/view?usp=sharing"
+    },
+    {
+      id: 6,
+      title: "CodeQuezt Contest: Data Structure and Algorithm",
+      issuer: "Naukri Campus",
+      date: "2024",
+      link: "https://drive.google.com/file/d/12ezaAJN1GUSMgbimLeaIAZLZQf1Q8sHT/view?usp=sharing"
+    },
+    {
+      id: 7,
+      title: "Naukri Campus Young Turks",
+      issuer: "Naukri Campus",
+      date: "Oct 2024",
+      link: "https://drive.google.com/file/d/1Qfy1YR71Vilt9aQywW_KEOuHSJXGtyL-/view?usp=sharing"
+    },
+    {
+      id: 8,
+      title: "Endpoint Security",
+      issuer: "Cisco Networking Academy",
+      date: "Jul 2025",
+      link: "https://drive.google.com/file/d/17x3SW5SZjnOy5kwXKnWH_a7X64EWp4FA/view?usp=sharing"
+    },
+    {
+      id: 9,
+      title: "Introduction to the Threat Landscape 3.0",
+      issuer: "Fortinet Training Institute",
+      date: "Jun 2026",
+      link: "https://drive.google.com/file/d/14Zu-8rYwq4AHg-bLqvYPlVc6qSAVzzAS/view?usp=sharing"
+    },
+    {
+      id: 10,
+      title: "Getting Started in Cybersecurity 3.0",
+      issuer: "Fortinet Training Institute",
+      date: "Jun 2026",
+      link: "https://drive.google.com/file/d/1nj_fehVcSHI2GhwIz6ONtNmC6O9d0sna/view?usp=sharing"
+    },
+    {
+      id: 11,
+      title: "Technical Introduction to Cybersecurity 3.0",
+      issuer: "Fortinet Training Institute",
+      date: "Jun 2026",
+      link: "https://drive.google.com/file/d/1FAQtrwr2M62IoWZy8DPAxsxKhQFe-MaB/view?usp=sharing"
+    },
+    {
+      id: 12,
+      title: "GHCI 25 Hackathon | Unbound with GenAI",
+      issuer: "AnitaB.org India",
+      date: "2025",
+      link: "https://drive.google.com/file/d/185kTYFvaiSF6JZ4XZp8Ppjd633BuZkBk/view?usp=sharing"
+    },
+    {
+      id: 13,
+      title: "GHCI 25 Hackathon | Unbound with GenAI (Part 2)",
+      issuer: "AnitaB.org India",
+      date: "2025",
+      link: "https://drive.google.com/file/d/1YnVjVbiAXNiWMtk44-zP2R_QWUTuHAHE/view?usp=sharing"
+    },
+    {
+      id: 14,
+      title: "HP Power Lab 2.0 (Round 1: Online Assessment)",
+      issuer: "Hindustan Petroleum Corporation Ltd.",
+      date: "Nov 2025",
+      link: "https://drive.google.com/file/d/1Z_ruir3UBBXS_5Npkm9dUzq-Kk4erbm7/view?usp=sharing"
+    },
+    {
+      id: 15,
+      title: "Business Intelligence (CEBIAIIN)",
+      issuer: "IBM Career Education Program",
+      date: "Oct 2025",
+      link: "https://drive.google.com/file/d/1kHkOcH6irt3hZE3X9t9x7r_JJF9h0nh9/view?usp=sharing"
+    },
+    {
+      id: 16,
+      title: "Predictive Modeling with IBM SPSS Modeler",
+      issuer: "IBM Career Education Program",
+      date: "Oct 2025",
+      link: "https://drive.google.com/file/d/1-ircPDCh4bPsb0PBLbNhsAAx1fduTXeW/view?usp=sharing"
+    },
+    {
+      id: 17,
+      title: "Big Data Technologies - Spark & Scala Fundamentals",
+      issuer: "IBM Career Education Program",
+      date: "Oct 2025",
+      link: "https://drive.google.com/file/d/1P40RxME5PAPIU8saHgnqjAC-gB6HaDak/view?usp=sharing"
+    },
+    {
+      id: 18,
+      title: "Water Action 2023 Global Program",
+      issuer: "IARF (International Association for Religious Freedom)",
+      date: "2024",
+      link: "https://drive.google.com/file/d/1_1q4u6tdgobq-WBKB2ivfzn-F-tNPcwX/view?usp=sharing"
+    },
+    {
+      id: 19,
+      title: "Introduction to Data Science",
+      issuer: "Cisco Networking Academy",
+      date: "Feb 2025",
+      link: "https://drive.google.com/file/d/16ss5sA0JpWQATmnEEjETwq_J82-nLHtN/view?usp=sharing"
+    },
+    {
+      id: 20,
+      title: "Introduction To Industry 4.0 And Industrial IoT",
+      issuer: "NPTEL | IIT Kharagpur",
+      date: "Jan 2025 - Apr 2025",
+      link: "https://drive.google.com/file/d/15EWfM9K3TREYnNJfJ3KfgIqyPQ58g0Cg/view?usp=sharing"
+    },
+    {
+      id: 21,
+      title: "Packet Investigation Challenge",
+      issuer: "CareerTiQ",
+      date: "Jun 2026",
+      link: "https://drive.google.com/file/d/1pOq5gHVe0h5aJtbYkmAIgkoEtkJG4uAG/view?usp=sharing"
+    },
+    {
+      id: 22,
+      title: "AINCAT 2026",
+      issuer: "Naukri Campus",
+      date: "Jun 2026",
+      link: "https://drive.google.com/file/d/17E7xS1czDmgl_C9OmuBceUIONjmORxYN/view?usp=sharing"
+    },
+    {
+      id: 23,
+      title: "NPTEL Discipline Star",
+      issuer: "NPTEL / Swayam (IIT Madras)",
+      date: "Jan 2026 - Apr 2026",
+      link: "https://drive.google.com/file/d/1SdTzA05-1soucAoEAqPdu8z5NIQXKJ7Q/view?usp=sharing"
+    },
+    {
+      id: 24,
+      title: "Virtual Internship on AI and Data Analytics focused on Green Skills",
+      issuer: "AICTE, Shell India & Edunet Foundation",
+      date: "Jul 2025 - Aug 2025",
+      link: "https://drive.google.com/file/d/1s-OL11UCN-1pSpjRBFFVbhF291dLOMq7/view?usp=sharing"
+    },
+    {
+      id: 25,
+      title: "Responsible & Safe AI Systems",
+      issuer: "NPTEL (IIIT Hyderabad & IIT Madras)",
+      date: "Jul 2025 - Oct 2025",
+      link: "https://drive.google.com/file/d/1agUgCRJEJLsq2UEnhDOQJokmx8Dg7WP4/view?usp=sharing"
+    },
+    {
+      id: 26,
+      title: "Masterclass: Building Scalable Systems Like Netflix",
+      issuer: "TalentSprint",
+      date: "Mar 2025",
+      link: "https://drive.google.com/file/d/1pA-Y561EpQgSbRoQXaPjd7zpJ1gnBWK8/view?usp=sharing"
+    },
+    {
+      id: 27,
+      title: "The Joy of Computing using Python",
+      issuer: "NPTEL (IIT Madras)",
+      date: "Jul 2025 - Oct 2025",
+      link: "https://drive.google.com/file/d/1ivTThGY3UaANcbIwRaDR5dHK9V4cXw7O/view?usp=sharing"
     }
   ],
   additionalInfo: [
