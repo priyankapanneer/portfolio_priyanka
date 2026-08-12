@@ -68,6 +68,54 @@ const portfolioData = {
       image: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=800",
       technologies: ["Python", "Pandas", "Data Visualization", "Data Science"],
       githubUrl: "https://github.com/priyankapanneer/Pandemicpulse"
+    },
+    {
+      id: 7,
+      title: "LocalHive",
+      description: "A web-based platform that connects customers with nearby service providers for both normal and emergency services. Features role-based access, scheduling, and analytics.",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32d7?auto=format&fit=crop&q=80&w=800",
+      technologies: ["PHP", "MySQL", "Bootstrap 5", "HTML/CSS"],
+      githubUrl: "https://github.com/priyankapanneer/Localhive"
+    },
+    {
+      id: 8,
+      title: "Eco-cart-AI",
+      description: "An AI-powered application designed to help users make sustainable shopping decisions and track their environmental footprint.",
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Artificial Intelligence", "Sustainability"],
+      githubUrl: "https://github.com/priyankapanneer/Eco--cart-AI"
+    },
+    {
+      id: 9,
+      title: "Database Management System",
+      description: "A comprehensive project demonstrating advanced database architecture, schema design, query optimization, and transaction management.",
+      image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=800",
+      technologies: ["SQL", "Database Design", "Architecture"],
+      githubUrl: "https://github.com/priyankapanneer/DBMS"
+    },
+    {
+      id: 10,
+      title: "Tourism Business Intelligence",
+      description: "A tourism analytics web app using PHP, MySQL, and IBM Cognos to explore visitor trends, safety, infrastructure, and seasonal patterns across Indian states.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800",
+      technologies: ["PHP", "MySQL", "IBM Cognos", "Analytics"],
+      githubUrl: "https://github.com/priyankapanneer/Business-Intelligence"
+    },
+    {
+      id: 11,
+      title: "Antariksh DualFusion",
+      description: "A deep learning pipeline that fuses two complementary low-resolution satellite images into a single super-resolved high-resolution output. Built for Bharatiya Antariksh Hackathon.",
+      image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Deep Learning", "Satellite Imagery", "Neural Networks"],
+      githubUrl: "https://github.com/Aruna168/Antariksh-DualFusion"
+    },
+    {
+      id: 12,
+      title: "Triple Threats Anomaly Detection",
+      description: "A cybersecurity platform that detects anomalous login behavior in real time using machine learning (Isolation Forest) without predefined datasets via behavioral biometric signals.",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+      technologies: ["Python", "Flask", "Isolation Forest", "Cybersecurity"],
+      githubUrl: "https://github.com/DhivyaShri1385/Triple-Threats"
     }
   ],
   skills: {
