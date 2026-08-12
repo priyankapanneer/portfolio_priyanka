@@ -99,27 +99,6 @@ const portfolioData = {
       issuer: "inlingua Chennai",
       date: "Aug 2024",
       link: "./public/certificates/inlingua.jpg"
-    },
-    {
-      id: 5,
-      title: "CEP Business Intelligence",
-      issuer: "IBM",
-      date: "Certified",
-      link: "#"
-    },
-    {
-      id: 6,
-      title: "CEP Predictive Modelling",
-      issuer: "IBM",
-      date: "Certified",
-      link: "#"
-    },
-    {
-      id: 7,
-      title: "CEP Scala Fundamentals",
-      issuer: "IBM",
-      date: "Certified",
-      link: "#"
     }
   ],
   additionalInfo: [
