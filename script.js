@@ -75,33 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
   `}).join('');
   document.getElementById('experience-container').innerHTML = expHtml;
 
-  // Projects
+  // Projects (Ultra Compact Style with Premium Aesthetics)
   const projHtml = portfolioData.projects.map(proj => `
-    <div class="glass-card rounded-3xl overflow-hidden group flex flex-col h-full border border-white/5 hover:border-primary/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_15px_40px_rgba(0,0,0,0.4)]">
+    <div class="glass-card p-5 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(0,0,0,0.5)] relative overflow-hidden transform hover:-translate-y-1 bg-background/30 backdrop-blur-md">
       
-      <!-- Image Container -->
-      <div class="relative h-60 w-full overflow-hidden bg-gradient-to-br from-primary/20 to-secondary-glow/20">
-        <div class="absolute inset-0 bg-background/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-        <img src="${proj.image}" alt="${proj.title}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80';" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-        
-        <!-- Floating Tech Badges -->
-        <div class="absolute top-4 left-4 z-20 flex flex-wrap gap-2 max-w-[80%]">
-           ${proj.technologies.slice(0,3).map(tech => `<span class="px-3 py-1 text-xs font-bold uppercase tracking-wider bg-foreground/10 backdrop-blur-md text-foreground rounded-full border border-foreground/10">${tech}</span>`).join('')}
+      <!-- Animated Left Neon Border -->
+      <div class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-secondary-glow opacity-50 group-hover:opacity-100 group-hover:w-2 transition-all duration-300"></div>
+
+      <!-- Hover Glow Background -->
+      <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-secondary-glow/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+
+      <!-- Title and Tech -->
+      <div class="relative z-10 flex flex-col gap-2 pl-4">
+        <h3 class="font-heading font-extrabold text-lg text-foreground group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary-glow transition-all duration-300 tracking-wide">${proj.title}</h3>
+        <div class="flex flex-wrap gap-2 mt-1">
+          ${proj.technologies.slice(0,4).map(tech => `<span class="px-2.5 py-1 text-[9px] font-bold uppercase tracking-widest text-primary bg-primary/10 border border-primary/20 rounded-full shadow-[0_0_10px_rgba(var(--primary-glow),0.1)] group-hover:border-primary/50 group-hover:shadow-[0_0_15px_hsl(var(--primary-glow))] transition-all duration-300">${tech}</span>`).join('')}
         </div>
       </div>
       
-      <!-- Content Container -->
-      <div class="p-8 flex flex-col flex-grow relative z-20 bg-background/40">
-        <h3 class="font-heading font-bold text-2xl mb-3 text-foreground group-hover:text-primary transition-colors">${proj.title}</h3>
-        <p class="text-muted-foreground text-sm mb-8 flex-grow leading-relaxed">${proj.description}</p>
-        
-        <!-- Action Links -->
-        <div class="flex items-center pt-6 border-t border-border mt-auto">
-          <a href="${proj.githubUrl}" target="_blank" class="w-full flex items-center justify-center space-x-2 text-sm font-bold uppercase tracking-wider bg-foreground/5 hover:bg-primary/20 text-foreground hover:text-primary py-3 rounded-xl transition-all border border-foreground/10 hover:border-primary/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))]">
-            <i data-feather="github" class="w-5 h-5"></i>
-            <span>View Source Code</span>
-          </a>
-        </div>
+      <!-- GitHub Action Button -->
+      <div class="relative z-10 flex-shrink-0 pr-2 mt-2 sm:mt-0">
+        <a href="${proj.githubUrl}" target="_blank" class="flex items-center justify-center space-x-2 text-foreground group-hover:text-primary transition-all duration-300 px-4 py-2.5 rounded-xl border border-white/10 group-hover:border-primary/50 group-hover:bg-primary/10 hover:shadow-[0_0_20px_hsl(var(--primary-glow))] relative overflow-hidden" title="View Source Code">
+          <div class="absolute inset-0 bg-primary/20 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500 ease-out"></div>
+          <i data-feather="github" class="w-5 h-5 relative z-10"></i>
+          <span class="text-xs font-bold uppercase tracking-widest relative z-10 hidden sm:block">Code</span>
+        </a>
       </div>
     </div>
   `).join('');
