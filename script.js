@@ -145,29 +145,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // Certifications
   if (portfolioData.certifications && portfolioData.certifications.length > 0) {
     const certHtml = portfolioData.certifications.map(cert => `
-      <div class="hologram-card p-8 rounded-3xl relative overflow-hidden group border border-white/5 hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.3)]">
+      <div class="hologram-card relative rounded-2xl overflow-hidden group border border-border hover:border-primary/50 transition-all duration-500 h-full flex flex-col bg-background/40">
         
-        <!-- Glowing Orb Background -->
-        <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 rounded-full blur-[40px] group-hover:bg-primary/30 group-hover:scale-150 transition-all duration-700"></div>
+        <!-- Left accent bar -->
+        <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary/80 shadow-[0_0_15px_hsl(var(--primary-glow))] group-hover:bg-primary transition-colors"></div>
 
-        <div class="relative z-10 flex flex-col h-full">
-          <div class="flex items-start justify-between mb-8">
-            <!-- Icon -->
-            <div class="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 text-primary border border-primary/20 shadow-[0_0_20px_hsl(var(--primary-glow))] group-hover:scale-110 transition-transform duration-500">
-              <i data-feather="award" class="w-6 h-6 group-hover:animate-pulse"></i>
+        <div class="relative z-10 flex flex-col h-full p-6 md:p-8 ml-2">
+          <!-- Header: Icon & Date -->
+          <div class="flex justify-between items-start mb-6">
+            <div class="flex items-center gap-3">
+              <i data-feather="award" class="w-5 h-5 text-primary group-hover:animate-pulse"></i>
+              <span class="text-[10px] font-mono tracking-[0.2em] text-primary uppercase">CERTIFICATE</span>
             </div>
-            <!-- Date Badge -->
-            <span class="text-xs font-bold px-4 py-1.5 bg-foreground/5 backdrop-blur-md text-foreground rounded-full border border-foreground/10 uppercase tracking-widest shadow-inner">${cert.date}</span>
+            <div class="text-right">
+              <span class="block text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-1">Date Issued</span>
+              <span class="font-mono text-xs font-bold text-foreground bg-foreground/10 px-2 py-1 rounded border border-foreground/10">${cert.date}</span>
+            </div>
           </div>
           
-          <h3 class="font-heading font-bold text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">${cert.title}</h3>
-          <p class="text-muted-foreground font-bold text-sm tracking-wider uppercase mb-8 flex-grow opacity-70">${cert.issuer}</p>
+          <!-- Body: Title & Issuer -->
+          <div class="mb-8">
+            <h3 class="font-heading font-bold text-xl md:text-2xl text-foreground mb-3 leading-tight uppercase group-hover:text-primary transition-colors">${cert.title}</h3>
+            <p class="font-mono text-xs text-muted-foreground uppercase tracking-widest border-l-2 border-primary/50 pl-3">${cert.issuer}</p>
+          </div>
           
-          <!-- Modern Button -->
-          <a href="${cert.link}" target="_blank" class="w-full flex items-center justify-center space-x-2 text-sm font-bold uppercase tracking-wider bg-foreground/5 hover:bg-primary/20 text-foreground hover:text-primary py-3.5 rounded-xl transition-all border border-foreground/10 hover:border-primary/50 hover:shadow-[0_0_15px_hsl(var(--primary-glow))] mt-auto">
-            <span>Verify Credential</span>
-            <i data-feather="external-link" class="w-4 h-4"></i>
-          </a>
+          <!-- Bottom Ticket Footer -->
+          <div class="mt-auto pt-6 border-t border-dashed border-foreground/20 flex items-center justify-center">
+            
+            <!-- Action Button -->
+            <a href="${cert.link}" target="_blank" class="w-full flex items-center justify-center space-x-2 px-4 h-10 rounded-full bg-primary/10 text-primary border border-primary/30 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_hsl(var(--primary-glow))] transition-all font-bold text-xs uppercase tracking-wider">
+              <span>View Credential</span>
+              <i data-feather="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
       </div>
     `).join('');
